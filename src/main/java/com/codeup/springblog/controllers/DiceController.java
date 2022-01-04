@@ -45,5 +45,5 @@ public class DiceController {
     public String Number6() {
         return "roll-dice/6";
     }
-
+//this way is dumb, have to refactor
 }
