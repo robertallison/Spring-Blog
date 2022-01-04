@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 public class PostController {
 
     private final PostRepository postDao;
-
+//postDao keeps staying greyed out, need to fix
     public PostController(PostRepository postDao) {
         this.postDao = postDao;
     }
