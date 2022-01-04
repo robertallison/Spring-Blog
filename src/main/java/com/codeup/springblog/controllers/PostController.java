@@ -6,6 +6,12 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class PostController {
 
+    private final PostRepository postDao;
+
+    public PostController(PostRepository postDao) {
+        this.postDao = postDao;
+    }
+
     @GetMapping("/posts")
     public String posts() {
         return "posts/show";
@@ -20,7 +26,7 @@ public class PostController {
     @GetMapping("/posts/create")
     @ResponseBody
     public String viewPosts() {
-        return "Viewing posts here";
+        return "View posts";
     }
 
     @PostMapping("posts/create")
@@ -34,4 +40,5 @@ public class PostController {
         return "posts/index";
     }
 
+    //need to go back and review this to fully understand syntax and edit and delete
 }
