@@ -6,7 +6,6 @@
 </head>
 <body>
 
-
 <form th:action="${'/posts/edit'}" method="post">
     <label name="postTitle">Title of Post:</label>
     <input name="postTitle" th:value="${postToEdit.getTitle()}">

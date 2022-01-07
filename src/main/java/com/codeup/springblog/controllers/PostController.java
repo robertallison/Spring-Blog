@@ -18,12 +18,12 @@ public class PostController {
     public String indexPosts(Model model){
         model.addAttribute("allPosts", postDao.findAll());
 
-        return "posts/index";
+        return "/posts/index";
     }
 
     @GetMapping("/posts/{id}")
     public String individualPost(@PathVariable int id){
-        return "posts/show";
+        return "/posts/show";
     }
 
     @GetMapping("/posts/edit/{id}")
@@ -31,7 +31,7 @@ public class PostController {
         Post editPost = postDao.getById(id);
 
         model.addAttribute("postToEdit", editPost);
-        return "posts/edit";
+        return "/posts/edit";
     }
 
     @PostMapping("/posts/edit")
@@ -59,7 +59,7 @@ public class PostController {
     @GetMapping("/posts/create")
     @ResponseBody
     public String viewCreatePost(){
-        return "Placeholder for the create post form!";
+        return "Placeholder for the create post";
     }
 
     @PostMapping("/posts/create")

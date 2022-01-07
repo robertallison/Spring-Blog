@@ -7,10 +7,13 @@
 <body>
 
 
+<h1>Here are all of the ads</h1>
+
 
 <div th:each="post : ${allPosts}">
     <span th:text="${post.getTitle()}"></span>
     <p th:text="${post.getBody()}"></p>
+   
 
     <form th:action="'/posts/edit/' + ${post.getId()}" method="get">
         <button>Edit</button>
