@@ -9,10 +9,12 @@ public class PostController {
 
     private final PostRepository postDao;
     private final UserRepository userDao;
+    private final EmailService emailService;
 
-    public PostController(PostRepository postDao, UserRepository userDao){
+    public PostController(PostRepository postDao, UserRepository userDao, EmailService emailService){
         this.postDao = postDao;
         this.userDao = userDao;
+        this.emailService = emailService;
     }
 
 
@@ -68,6 +70,7 @@ public class PostController {
     @PostMapping("/posts/create")
     public String createPost(@ModelAttribute Post post){
         post.setUser(userDao.getById(1L));
+        emailService.prepareAndSend(post, "Your post has been created", "Congrats here is your email confirmation");
 
         postDao.save(post);
         return "redirect:/posts";
